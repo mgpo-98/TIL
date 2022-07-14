@@ -1,9 +1,24 @@
-word ='apple'
+#문자로 순회하는 것이 아니라!
+#인덱스로 접근해서 쓰자
+#원하는 숫자? 0, ,1 ,2 ,3
+#얻는 방법? range(len(word)) =>range(6)=>0~5
+word ='banana'
 cnt = 0 
-mo = ['a','e','i','o','u']
+ind = -1
 for i in word:
-    for j in mo:
-        if i == j:
-            cnt += 1
+    if i == 'a':
+        ind = cnt
+        break
+    cnt +=1
+    
+print(ind)
 
-print(cnt)
+
+# word
+# for idx in range(len(word)):
+        #print(idx,word[idx])
+    #if word[idx] =='a':
+        #print(idx)
+        #break
+#else :
+ #   print(-1)
