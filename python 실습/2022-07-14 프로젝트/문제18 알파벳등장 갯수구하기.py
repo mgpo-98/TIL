@@ -12,9 +12,6 @@ for char in word:
     #딕셔너리에 키가 있다
     else: 
         result[char] += 1
-
-    #result[char] =result.get(char,0)+ 1  로 한줄로 표현이 가능하다
 print(result)
-
-#for key in result:
- #   print(key, reset[key])
+for key in result:
+    print(key, reset[key])
