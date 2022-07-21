@@ -1,9 +1,9 @@
 n = int(input())
-a = ['3','6','9']
+cnt = 0
 for i in range(1,n+1):
-    
-    if str(i) in a:
-        i = '-'
-        print(i)
-    else :
-        print(str(i))        
+    i = str(i)
+    if (i in '3' or i in '6' or i in '9'):
+        cnt += 1
+        print('-'*cnt, end=' ')
+    else:
+        print(i, end =' ')
