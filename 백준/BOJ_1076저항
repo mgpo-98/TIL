@@ -1,0 +1,4 @@
+r = ['black','brown','red','orange','yellow','green','blue','violet','grey','white']
+a,b,c = input().split()
+res = (r.index(a) *10 + r.index(b)) * (10**r.index(c)) 
+print(res)
