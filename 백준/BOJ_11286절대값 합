@@ -1,0 +1,16 @@
+import heapq
+import sys
+
+sys.stdin = open("절댓값.txt", "r")
+n = int(input())
+
+heap =[]
+for _ in range(n):
+    x= int(input())
+    if x == 0:     # 정수x가 0이면
+        if heap :
+            print(heapq.heappop(heap)[1])   
+        else:
+            print(0)    
+    else:
+        heapq.heappush(heap, (abs(x),x))  #힙 절댓값출력?
