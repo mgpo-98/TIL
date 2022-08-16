@@ -1,7 +1,5 @@
-
-while True :
-
-    a = int(input())
-    if a == 0:
-        break
-print(a)
+n = 1
+while n != 0:
+    n = int(input())
+    if n != 0:
+        print(n)
