@@ -37,3 +37,7 @@ SELECT weight, height FROM healthcare WHERE weight > 90 and height >190 ;
 SELECT avg(weight), avg(age), avg(height) FROM healthcare;
 
 SELECT count(*) FROM healthcare WHERE smoking = 1;
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+SELECT smoking, COUNT(*) FROM healthcare GROUP BY smoking;
