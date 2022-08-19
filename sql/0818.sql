@@ -46,3 +46,4 @@ HAVING avg(height)>=160 AND avg(weight) >=60;
 
 SELECT gender,ROUND(avg(va_left),2) AS '평균 왼쪽 시력', ROUND(avg(va_right),2) AS '평균 오른쪽 시력' FROM healthcare
 GROUP by gender;
+
