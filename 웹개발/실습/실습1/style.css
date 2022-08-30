@@ -1,0 +1,23 @@
+/* 아래에 CSS를 작성해주세요. */
+h2 {
+    font-size: 12px;
+    text-align: center;
+}
+span {
+    font-size: 30px;
+}
+dd {
+    width: 900px;
+}
+.le { width: 300px;
+    margin: 35px;
+    margin-left: 50px;
+    border-radius: 5%;
+}
+.ri {
+    width: 300px;
+    margin: 35px;
+    margin-left: 10px;
+    border-radius: 5%;
+    
+}
