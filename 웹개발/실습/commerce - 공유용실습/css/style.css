@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  min-width: 1280px;
+  color: #333333;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+}
+.nav-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.nav-item{
+  margin: 0 1rem;
+}
+.nav-item2{
+  margin: 0 2rem 0 0;
+}
+.nav-link:hover{
+  color: white;
+  background-color:black;
+  border-radius: 3px ;
+  padding: 2px;
+}
+.nav-link:visited{
+  color: red;
+}
+hr {
+  width : 50%;
+}
+
+.hr-solid {
+  border : 0px;
+  border-top: 3px solid gray;
+}
+h1 {
+  margin: 0 50px;
+}
+.banner-img{
+  
+  margin: auto;
+  background-size: 1000px;
+  height: 700px;
+  width: 1400px;
+  background-image: url('C:\Users\조승윤\Desktop\TIL\웹개발\실습\commerce - 공유용실습\assets\apparel.jpeg');
+  background-repeat: no-repeat;
+}
+.banner {
+  text-align: center;
+}
+.bon-img{
+  width: 500px;
+  border-radius: 20px;
+  margin: 2rem;
+}
+.bon{
+  display: flex;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+.head{
+  margin-top: 2rem;
+  line-height: 2;
+}
+.title{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.m{
+  text-align: center;
+  line-height: 1.5;
+  
+}
+.more-img{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.More{
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+.more-i{
+  height: 64px;
+  width: 64px;
+}
+.more-text{
+  text-align: center;
+  font-size: 1.5em;
+}
+.up{
+ margin: 64px;
+ 
+}
+.upup{
+  position: fixed;
+  justify-content: flex-end;
+  height: 60px;
+  width: 60px;
+  bottom: 0; /* 하단에 여백 없이 */
+  right: 0;
+  
+}
