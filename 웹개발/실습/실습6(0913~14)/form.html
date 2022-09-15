@@ -6,23 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid ">
-      <a class="navbar-brand " href="#"><img class=" img-fluid " src="C:\Users\조승윤\Desktop\TIL\웹개발\실습\실습6(0913)\logo.png" width="120"></a>
+      <a class="navbar-brand " href="#"><img class=" img-fluid " src="./img/logo.png" width="120"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse  " id="navbarNav">
         <ul class="navbar-nav bg-lg-0 ">
           <li class="nav-item">
-            <a class="nav-link active " aria-current="page" href="#">Home</a>
+            <a class="nav-link active " aria-current="page" href="./index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Community</a>
+            <a class="nav-link" href="./community.html">Community</a>
           </li>
           <li class="nav-item">
               <button type="button" class="nav-link navbar-dark bg-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -68,35 +67,27 @@
       </div>
     </div>
   </nav>
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://dummyimage.com/1920x600/000/fff" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://dummyimage.com/1920x600/000/fff" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://dummyimage.com/1920x600/000/fff" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+
+<div class="container-fluid  mt-3 fs-1" size="3"><h2 class="text-center "> 리뷰 작성하기</h2></div>
+<select class="form-select d-flex ms-auto me-auto " aria-label="Default select example" style="width:1300px">
+    <option selected>영화 선택하기</option>
+    <option value="2">쇼생크 탈출</option>
+    <option value="3">죽은 시인의사회</option>
+    <option value="4">다크나이트 라이즈</option>
+    <option value="5">그랜드 부다페스트 호텔</option>
+    <option value="6">her</option>
+    <option value="7">위대한 쇼맨</option>
+  </select>
+  <div class="mb-3  ms-auto me-auto "style="width:1300px">
+    <label for="exampleFormControlInput1" class="form-label">리뷰 제목</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="리뷰를 작성해주세요">
   </div>
-  <div class="container-fluid mt-5"><h2 class="text-center "> Boxoffice</h2></div>
-  <div class="d-flex align-content-stretch flex-wrap justify-content-center">
-    <div class="m-3  p-0"><img src="C:\Users\조승윤\Desktop\TIL\웹개발\실습\실습6(0913)\movie1.jpg"></div>
-    <div class="m-3  p-0"><img src="C:\Users\조승윤\Desktop\TIL\웹개발\실습\실습6(0913)\movie2.jpg"></div>
-    <div class="m-3  p-0"><img src="C:\Users\조승윤\Desktop\TIL\웹개발\실습\실습6(0913)\movie3.jpg"></div>
-    <div class="m-3  p-0"><img src="C:\Users\조승윤\Desktop\TIL\웹개발\실습\실습6(0913)\movie4.jpg"></div>
-    <div class="m-3  p-0"><img src="C:\Users\조승윤\Desktop\TIL\웹개발\실습\실습6(0913)\movie5.jpg"></div>
-    <div class="m-3  p-0"><img src="C:\Users\조승윤\Desktop\TIL\웹개발\실습\실습6(0913)\movie6.jpg"></div>
+  <div class="mb-3 ms-auto me-auto mb-3"style="width:1300px">
+    <label for="exampleFormControlTextarea1" class="form-label">리뷰내용</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <button type="button" class="btn btn-primary mt-3">Submit</button>
   </div>
+  <h2 class="text-center">Web-bootstrap PJT, by조승윤</h2>
+
 </body>
 </html>
