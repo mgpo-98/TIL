@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로또 추천 번호</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/quiple/hbios-sys@latest/hbios-sys.css">
+
+  <style>
+    .app{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .btn {
+      padding: 5px 12px;
+      font-size: large;
+     
+      margin-bottom: 1rem;
+    }
+    .ball {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      margin: .3rem;
+      border-radius: 50%;
+      /* 컨텐츠 중앙, 수직 정렬 */
+      text-align: center;
+      line-height: 100px;
+      /* 폰트 */
+      font-size: 32px;
+      font-weight: bold;
+    }
+    .footer {
+      text-align: center;
+      line-height: 3rem;
+    }
+  </style>
+</head>
+<body >
+  <div class="app">
+    <h1>로또 추천 번호</h1>
+    <button id="lotto-btn" class="btn">추천번호 받기</button>
+    <section id="result"></section>
+  </div>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+  // 공 컬러로 입힐 색 지정
+  var lottoColors = ["#FFCC00", "#3366FF", "#FF0000", "#999999", "#339933"]
+
+    const button = document.querySelector('#lotto-btn')
+    button.addEventListener('click', function() {
+
+      // (클릭 할때마다) 랜덤하게 뽑은 6개 숫자를 sort 하고
+      const lottoNums = _.sampleSize(_.range(1, 46), 6).sort((a, b)=> a - b)
+
+      // (클릭 할때마다) 6개 숫자가 담긴 section 을 계속 생성 
+      const section = document.createElement('section')
+      lottoNums.forEach(number => {
+        const div = document.createElement('div')
+        div.innerText = number
+        div.classList.add('ball')
+        div.style.backgroundColor = lottoColors[Math.floor((number)/10)]
+        section.appendChild(div)
+        console.log(number)
+      })
+
+      // (클릭 할때마다) 새로 만들어지는 section 을 결과 영역에 붙인다.
+      const result = document.querySelector('#result')
+      result.appendChild(section)
+    })
+  </script>
+</body>
+</html>
