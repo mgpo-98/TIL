@@ -1,0 +1,4 @@
+<h1>{{ article.pk }}detail</h1>
+<h2>{{ article.create_at}}} | {{article.update_at}} </h2>
+<p>{{ article.content }}</p>
+<a href="{% url 'articles:update' article.pk %}">수정하기</a>

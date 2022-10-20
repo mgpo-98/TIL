@@ -10,6 +10,12 @@
 
 <body>
     <h1>ㅎㅇ</h1>
+    <a href="{% url 'articles:new' %}">글쓰기 </a>
+    {% for article in articles %}
+    <h3><a href="{% url 'articles:detail' article.pk %} ">{{ article.title }}</a></h3>
+    <p>{{ article.create_at }} | {{ article.update_at }}</p>
+    <hr>
+    {% endfor %}
 </body>
 
 </html>
