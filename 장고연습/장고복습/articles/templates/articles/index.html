@@ -10,6 +10,8 @@
 
 <body>
     <h1>ㅎㅇ</h1>
+    {% load static %}
+    <img src="{% static 'oking.jpeg' %}" alt="">
     <a href="{% url 'articles:new' %}">글쓰기 </a>
     {% for article in articles %}
     <h3><a href="{% url 'articles:detail' article.pk %} ">{{ article.title }}</a></h3>

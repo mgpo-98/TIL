@@ -28,6 +28,12 @@ def new(request):
 
 def create(request):
     if request.method =='POST': 
+        
+        # Article.objects.create(
+        #     title=request.POST.get('title'),
+        #     content=request.POST.get('content')
+        # )
+        
         article_form = ArticleForm(request.POST)
         if article_form.is_valid():
             article_form.save()

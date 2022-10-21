@@ -1,7 +1,11 @@
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 <h1>new.html</h1>
 
 <form action="{% url 'articles:create' %}" method='POST'>
     {% csrf_token %}
+    {% bootstrap_form article_form %}
     {{ article_form.as_p }}
     <label for="title">제목</label>
     <input type="text" name="title" id="title" required>
