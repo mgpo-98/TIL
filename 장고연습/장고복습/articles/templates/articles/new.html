@@ -3,7 +3,7 @@
 {% bootstrap_javascript %}
 <h1>new.html</h1>
 
-<form action="{% url 'articles:create' %}" method='POST'>
+<form action="{% url 'articles:create' %}" method='POST' enctype="multipart/form-data">
     {% csrf_token %}
     <!-- 
     {% for field in article_form %}

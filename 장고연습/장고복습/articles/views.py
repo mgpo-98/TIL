@@ -27,24 +27,19 @@ def new(request):
     return render(request, 'articles/new.html',context=context)
 
 def create(request):
-    if request.method =='POST': 
-        
-        # Article.objects.create(
-        #     title=request.POST.get('title'),
-        #     content=request.POST.get('content')
-        # )
-        
-        article_form = ArticleForm(request.POST)
-        if article_form.is_valid():
-            article_form.save()
-            return redirect ('articles:index')
-
-    else:
-        article_form =ArticleForm()
-    context={
-    'article_form': article_form
-    }
-    return render(request, 'articles/new.html',context=context)
+    if request.user.is_authenticated:
+        if request.method =='POST': 
+            article_form = ArticleForm(request.POST, request.FILES)
+            if article_form.is_valid():
+                article_form.save()
+                return redirect ('articles:index')
+        else:
+            article_form =ArticleForm()
+        context={
+        'article_form': article_form
+        }
+        return render(request, 'articles/new.html',context=context)
+    else: return redirect('accounts:login')
 
 
 def detail(request, pk):
