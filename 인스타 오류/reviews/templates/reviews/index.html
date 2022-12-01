@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+<head>
+  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+  {% csrf_token %}
+</head>
+{% block content %}
+
+<div class=" d-flex m-4 py-4 px-2 ">
+
+  <form method='search' action=''>
+    {% csrf_token %}
+    <input type="" name="search_button" value="검색" style="background-color: rgb(242, 242, 242)">
+  </form>
+  <a href="{% url 'reviews:create' %}"><button type="button" class="btn btn-primary">글쓰기</button></a>
+  {% comment %} 리뷰 글 반복 {% endcomment %}
+  <div>
+    <ul class="list-group list-group-flush">
+      {% for review in reviews %}
+      <li class="list-group-item">
+        {% comment %} 제목 {% endcomment %}
+        <a href="{% url 'reviews:detail' review.pk %}" ><div>{{ review.title }}</div>
+
+        {% comment %} 글 작성일 {% endcomment %}
+        <p>{{ review.created_at }}</p>
+
+        {% comment %} 사진 {% endcomment %}
+        {% if review.image %}
+        {% for i in review.image.all %}
+            <img src="{{ i.image.url }}" /><br />
+
+            {% endfor %}
+        {% endif %}
+
+
+        {% comment %} 내용 {% endcomment %}
+        <p>{{ review.content }}</p></a>
+
+        {% comment %} 좋아요 {% endcomment %}
+        <div style="margin: 0 20px;display: flex; flex-direction: row; justify-content: space-between">
+        
+          <div>
+            <span id="favorite_{{ review.id }}" review_id="{{ review.id }}"
+                  class="favorite material-icons-outlined"
+                  style="color: red;cursor: pointer">{% if review.is_liked %}
+                favorite{% else %}favorite_border{% endif %}</span>
+        </div>
+     
+      </div>
+      <div style="margin: 0 20px;text-align: left;font-size: 14px"> 춘식이 <b>외 {{ review.like_count }}명</b>이
+          좋아합니다.
+      </div>
+        
+{% comment %} 댓글작성 {% endcomment %}
+
+        <div style="display:flex;flex-direction: row;align-items: center; border-top: solid 1px gray ">
+          <input id="comment_{{ review.id }}" type="text" class="form-control"
+                 style="box-shadow: none; border: none; outline: none"
+                 placeholder="댓글 달기..">
+          <div review_id="{{ review.id }}" class="upload_reply"
+               style="width: 50px;color: cornflowerblue; font-weight: bold">
+               게시
+          </div>
+      </div>
+      </li>
+      <li>
+       
+      <div id="reply_list_{{ review.id }}">
+          {% for reply in review.reply_list %}
+              <div style="margin: 0 20px;text-align: left;font-size: 14px">
+                  <b>{{ reply.username }}</b> {{ reply.comment_content }}</div>
+          {% endfor %}
+      </div>
+      {% endfor %}
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+{% comment %} 페이지네이션 {% endcomment %}
+<ul class="pagination">
+  {% comment %} 이전 페이지 {% endcomment %}
+  {% if posts.has_previous %}
+  <li class="page-item">
+    <a class="page-link" href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+      <span aria-hidden="true">&laquo;</span>
+    </a>
+  </li>
+  {% else %}
+  <li class="page-item disabled">
+    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">
+      <span aria-hidden="true">&laquo;</span>
+    </a>
+  </li>
+  {% endif %}
+  {% comment %} 페이지리스트 {% endcomment %}
+  {% for page_number in posts.paginator.page_range %}
+  {% if page_number >= posts.number|add:-5 and page_number <= posts.number|add:5 %} {% if page_number == posts.number %}
+    <li class="page-item active" aria-current="page">
+    <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+    </li>
+    {% else %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+    </li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% comment %} 다음 페이지 {% endcomment %}
+    {% if posts.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ posts.next_page_number }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    {% else %}
+    <li class="page-item disabled">
+      <a class="page-link" tabindex="-1" aria-disabled="true" href="#">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    {% endif %}
+</ul>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+<script>
+  $(".favorite").click(function (event) {
+    let review_id = event.target.attributes.getNamedItem('review_id').value;
+    let favorite_id = event.target.id;
+    console.log(favorite_id);
+    let favorite_text = $.trim($('#' + favorite_id).html());
+    console.log(favorite_text);
+    if (favorite_text == 'favorite') {
+        $('#' + favorite_id).html('favorite_border');
+    } else {
+        $('#' + favorite_id).html('favorite');
+    }
+
+    $.ajax({
+        url: "/reviews/like/",
+        data: {
+          review_id: review_id,
+          favorite_text: favorite_text
+        },
+        method: "POST",
+        success: function (data) {
+            console.log("성공");
+        },
+        error: function (request, status, error) {
+            console.log("에러");
+        },
+        complete: function () {
+            console.log("완료");
+        }
+    });
+});
+
+
+  $(".upload_reply").click(function (event) {
+    let review_id = event.target.attributes.getNamedItem('review_id').value;
+    let comment_id = 'comment_' + review_id;
+      console.log(comment_id)
+    let comment_content = $('#'+ comment_id).val();
+    console.log(comment_content);
+    
+    if (comment_content.length <= 0) {
+      alert("댓글을 입력하세요");
+      return 0;
+    }
+    $.ajax({
+      url: "/reviews/comments/",
+      data: {
+        review_id: review_id,
+        comment_content: comment_content,
+        
+      },
+      method: "POST",
+      success: function (data) {
+          console.log("성공");
+          alert("댓글 성공");
+          $("#reply_list_" +review_id).append('csrfmiddlewaretoken', "<div style='margin: 0 20px;text-align: left;font-size: 14px'><b>{{ user.username }}</b>" + comment_content + "</div>", "{{ csrf_token }}")
+          {#location.replace('/');#}
+          
+
+      },
+      error: function (request, status, error) {
+          console.log("에러");
+      },
+      complete: function () {
+          console.log("완료");
+          $('#' + review_id).val('');
+      }
+    });
+
+
+
+ 
+
+  });
+</script>
+
+
+
+{% endblock content %}

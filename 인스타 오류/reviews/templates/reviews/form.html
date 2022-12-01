@@ -1,0 +1,30 @@
+{% load django_bootstrap5 %}
+
+
+{% block content %}
+
+<h1>리뷰작성 페이지</h1>
+
+
+<form id="review" method="post" action="" enctype="multipart/form-data">
+ 
+    {% csrf_token %}
+
+    <b>{{review_form.title.label}}</b><br />
+    {{review_form.title}}<br />
+
+
+   <b> {{review_form.content.label}}</b> <br />
+   {{review_form.content}}<br />
+
+
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {{ form }}<br />
+    {% endfor %}
+ 
+ 
+    <input type="submit" name="submit" value="Submit" >
+</form>
+
+{% endblock content %}
