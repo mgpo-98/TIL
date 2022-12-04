@@ -1,0 +1,845 @@
+/* 반응형 */
+html {
+  font-size: 62.5%;
+  font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+}
+
+@media all and (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* Tag */
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+::selection {
+  background-color: #b52b33;
+  color: rgb(255, 255, 255);
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+hr {
+  text-align: center;
+  margin: auto;
+}
+
+input::placeholder {
+  font-size: 1.6rem;
+  vertical-align: middle;
+}
+
+button {
+  font-size: 1.6rem;
+}
+
+/* Class */
+
+/* text */
+.text-red {
+  color: #c82d36;
+}
+
+.text-navy {
+  color: #111b54;
+}
+
+.a-black-red {
+  color: black;
+}
+
+.a-black-red:hover {
+  color: #c82d36;
+}
+
+.a-navy-red {
+  color: #111b54;
+}
+
+.a-navy-red:hover {
+  color: #c82d36;
+}
+
+/* 레이아웃 정리 */
+.layout-center {
+  padding-top: 10rem;
+  margin-bottom: 10rem;
+  display: flex;
+  justify-content: center;
+  margin-right: 25rem;
+  margin-left: 25rem;
+}
+
+/* 세로선 */
+.updown {
+  border: 0.1rem solid rgb(105, 105, 105);
+  width: 0.1rem;
+  height: 20rem;
+}
+
+/* 기본 버튼(네이비 컬러) CSS */
+.button {
+  min-width: 150px;
+  max-width: 250px;
+  display: block;
+  margin: 1em;
+  padding: 1em 2em;
+  border: none;
+  background: none;
+  color: inherit;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+.button:focus {
+  outline: none;
+}
+
+.button--size-s {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.button--text-upper {
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+.button--border-thick {
+  border: 3px solid;
+}
+
+.button--wayra {
+  overflow: hidden;
+  width: 245px;
+  -webkit-transition: border-color 0.3s, color 0.3s;
+  transition: border-color 0.3s, color 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--wayra::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  background: #37474f;
+  z-index: -1;
+  -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+  transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
+  -webkit-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s,
+    background-color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+}
+.button--wayra:hover {
+  color: #fff;
+  border-color: #111b54;
+}
+.button--wayra.button--inverted:hover {
+  color: #111b54;
+  border-color: #fff;
+}
+.button--wayra:hover::before {
+  opacity: 1;
+  background-color: #111b54;
+  -webkit-transform: rotate3d(0, 0, 1, 0deg);
+  transform: rotate3d(0, 0, 1, 0deg);
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--wayra.button--inverted:hover::before {
+  background-color: #fff;
+}
+
+.btn {
+  font-size: 1.6rem;
+}
+
+.btn-navy {
+  color: white;
+  background-color: #111b54;
+  border: 1px solid #111b54;
+}
+.btn-navy:hover {
+  color: white;
+  background-color: #090e2b;
+  border: 1px solid #090e2b;
+}
+
+.btn-outline-navy {
+  color: #111b54;
+  background-color: white;
+  border: 1px solid #111b54;
+}
+.btn-outline-navy:hover {
+  color: #111b54;
+  font-weight: 550;
+  background-color: white;
+  border: 1px solid #111b54;
+}
+
+/* base.html - header CSS */
+.header {
+  width: 80%;
+}
+
+.header-a {
+  font-size: 2.3rem;
+  color: inherit;
+}
+
+/* base.html - header link under */
+.link-arrow:after {
+  content: "";
+  background-size: 100% 100%;
+  width: 16px;
+  height: 12px;
+  position: absolute;
+  top: 5px;
+  right: -28px;
+  -webkit-transition: all 0.4s cubic-bezier(0.35, 1, 0.33, 1);
+  transition: all 0.4s cubic-bezier(0.35, 1, 0.33, 1);
+}
+
+.link-arrow:hover:after {
+  right: -35px;
+}
+
+.link-arrow.link-arrow-white:after {
+  background-size: 100% 100%;
+}
+
+.link-arrow-hover:after {
+  right: -35px;
+}
+
+.link {
+  display: inline-block;
+  position: relative;
+  border: none;
+  padding-bottom: 4px;
+  text-transform: uppercase;
+  font-family: Montserrat, helvetica, arial, sans-serif;
+  font-weight: 700;
+}
+
+.link:active,
+.link:focus,
+.link:hover {
+  outline: 0;
+}
+
+.link:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #000;
+  width: 0;
+  height: 2px;
+  -webkit-transition: all 0.4s cubic-bezier(0.35, 1, 0.33, 1);
+  transition: all 0.4s cubic-bezier(0.35, 1, 0.33, 1);
+}
+
+.link:hover {
+  color: #000;
+}
+
+.link:hover:before {
+  width: 100%;
+}
+
+.link-theme:before {
+  background: #c82d36;
+}
+
+@media only screen and (min-width: 250px) {
+  .main {
+    padding-top: 150px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .main {
+    padding-top: 150px;
+  }
+}
+
+/* base.html - header box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1); */
+.header {
+  background-color: rgba(255, 255, 255, 0.725);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  margin-top: 0;
+  margin-right: 10%;
+  padding: 3rem 9rem;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px 4px 20px;
+  text-decoration: none;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background: transparent;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 2px 0px;
+  text-decoration: none;
+}
+
+/* base.html - header menu */
+.header .menu {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+/* base.html - header menu icon */
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  margin-top: 8px;
+  background: #333;
+  display: block;
+  height: 3px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* base.html - header menu btn */
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+/* base.html - header 48em = 768px */
+@media (min-width: 875px) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 0px 0px 0px;
+    margin-left: 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
+/* base.html - header 48em = 768px */
+@media (min-width: 48em) {
+  .section-split a {
+    width: 50%;
+  }
+}
+
+/* base.html - Ball CSS */
+.ball-and-shadow {
+  float: right;
+  margin-top: 20rem;
+  margin-right: 10rem;
+  cursor: pointer;
+}
+
+.ball-container {
+  animation: floating 3s ease-in-out infinite;
+  height: 10rem;
+  width: 10rem;
+  right: 7%;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 3;
+}
+
+@keyframes floating {
+  0% {
+    transform: translatey(0rem);
+  }
+
+  50% {
+    transform: translatey(-3rem);
+  }
+
+  100% {
+    transform: translatey(0rem);
+  }
+}
+
+/* base.html - container-css */
+.container-css {
+  padding-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+/* base.html  .scrollToTop  */
+.scrollToTop {
+  z-index: 2;
+  all: unset;
+  cursor: pointer;
+  position: fixed;
+  right: 8rem;
+  bottom: 9rem;
+}
+
+
+/* base.html - footer 하단 고정 */
+#wrapper {
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 31.4rem;
+}
+
+footer {
+  height: 31.4rem;
+  position: relative;
+  transform: translateY(-100%);
+  background-color: #f6f6f6;
+}
+
+/* base.html - Top 버튼 */
+#hexagon {
+  background-color: #111b54;
+  height: 6rem;
+  width: 6.5rem;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+/* korea/index.html - 인트로 동영상 */
+.jb-container {
+  padding: 0px;
+  margin: 0px;
+}
+
+.jb-box {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+video {
+  width: 100%;
+}
+
+/* korea/index.html main 태그 내부 div */
+.under-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* korea/index.html 대한민국 카드 */
+.korea-card {
+  width: 50rem;
+  background-color: #f6f6f6;
+  padding: 5rem;
+  margin: 1.5rem;
+  transition: all 0.3s ease-out;
+}
+
+/* korea/index.html 선수 포지션 탭 */
+
+.position-tab {
+  height: auto;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 3rem;
+  line-height: 1.5;
+}
+
+.tabs {
+  height: 100%;
+  font-size: 1.5rem;
+}
+
+input[name="tabs"] {
+  float: left;
+  opacity: 0;
+  position: absolute;
+}
+
+input[name="tabs"] ~ label {
+  padding: 1em;
+  width: 20%;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+input[name="tabs"] ~ label:hover {
+  background: #d9d9d9;
+}
+input[name="tabs"] ~ label:focus {
+  outline: 0;
+}
+
+.tab {
+  height: 100%;
+  width: 100%;
+  display: none;
+  padding: 8rem 1rem 1rem;
+}
+
+label[for="toggle-apples"] {
+  border-top: 0.8rem solid #b52b33;
+  background: #fff;
+  text-transform: uppercase;
+}
+
+#toggle-apples:checked ~ .tab-apples {
+  display: block;
+  background: #f6f6f6;
+}
+
+#toggle-apples:checked ~ label[for="toggle-apples"] {
+  cursor: default;
+  background: #f6f6f6;
+  color: #b52b33;
+}
+
+label[for="toggle-bananas"] {
+  border-top: 0.8rem solid #aac706;
+  background: #fff;
+  border-left: 0.1rem solid #7e7e7e;
+  text-transform: uppercase;
+}
+
+#toggle-bananas:checked ~ .tab-bananas {
+  display: block;
+  background: #f6f6f6;
+}
+
+#toggle-bananas:checked ~ label[for="toggle-bananas"] {
+  cursor: default;
+  background: #f6f6f6;
+  color: #aac706;
+}
+
+label[for="toggle-cherries"] {
+  border-top: 0.8rem solid #15c68e;
+  background: #fff;
+  border-left: 0.1rem solid #7e7e7e;
+  text-transform: uppercase;
+}
+
+#toggle-cherries:checked ~ .tab-cherries {
+  display: block;
+  background: #f6f6f6;
+}
+
+#toggle-cherries:checked ~ label[for="toggle-cherries"] {
+  cursor: default;
+  background: #f6f6f6;
+  color: #15c68e;
+}
+
+label[for="toggle-oranges"] {
+  border-top: 0.8rem solid #14a3bb;
+  background: #fff;
+  border-left: 0.1rem solid #7e7e7e;
+  text-transform: uppercase;
+}
+
+#toggle-oranges:checked ~ .tab-oranges {
+  display: block;
+  background: #f6f6f6;
+}
+
+#toggle-oranges:checked ~ label[for="toggle-oranges"] {
+  cursor: default;
+  background: #f6f6f6;
+  color: #14a3bb;
+}
+
+label[for="toggle-pears"] {
+  border-top: 0.8rem solid #776eef;
+  background: #fff;
+  border-left: 0.1rem solid #7e7e7e;
+  text-transform: uppercase;
+}
+
+#toggle-pears:checked ~ .tab-pears {
+  display: block;
+  background: #f6f6f6;
+}
+
+#toggle-pears:checked ~ label[for="toggle-pears"] {
+  cursor: default;
+  background: #f6f6f6;
+  color: #776eef;
+}
+
+.text-title {
+  display: none;
+}
+@media screen and (min-width: 900px) {
+  .text-title {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@media (min-width: 300px) {
+  .text-title {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+/* korea/index.html player-card */
+
+.player-card {
+  background-color: #fff;
+  margin: 1.5rem;
+  padding: 4rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease-out;
+}
+
+.player-card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+    0 24px 46px var(--box-shadow-color);
+}
+
+.player-card:hover .overlay {
+  transform: scale(4) translateZ(0);
+}
+
+/* korea/index.html position-color */
+
+.position-color {
+  --bg-color: #b52b33;
+  --bg-color-light: #d37679;
+  --text-color-hover: #fff;
+  --box-shadow-color: rgba(252, 178, 178, 0.48);
+}
+
+/* korea/index.html overlay */
+
+.overlay {
+  width: auto;
+  height: auto;
+  position: absolute;
+  border-radius: 50%;
+  background: var(--bg-color);
+  top: auto;
+  left: auto;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+}
+
+/* korea/index.html position-box */
+
+.position-box {
+  background-color: #b52b33;
+  padding: 1rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.fw-position-box {
+  background-color: #aac706;
+  padding: 1rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.mf-position-box {
+  background-color: #15c68e;
+  padding: 1rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.df-position-box {
+  background-color: #14a3bb;
+  padding: 1rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.gk-position-box {
+  background-color: #776eef;
+  padding: 1rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* korea/detail.html */
+
+/* 선수 프로필사진 */
+.player-pic-wrapper {
+  width: 23rem;
+  height: 23rem;
+  border-radius: 70%;
+  overflow: hidden;
+  background-color: white;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.player-pic-wrapper-support {
+  width: 23rem;
+  height: 23rem;
+  border-radius: 70%;
+  overflow: hidden;
+  background-color: white;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.player-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 채팅창 디자인 */
+.wrap {
+  padding: 4rem 0;
+  background-color: #f6f6f6;
+  /* border: 1px solid #111b545b; */
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.wrap .chat {
+  display: flex;
+  align-items: flex-start;
+  padding: 2rem;
+  max-width: calc(100% - 0.5rem);
+}
+
+.wrap .chat .textbox {
+  position: relative;
+  /* 말풍선은 텍스트의 양에 따라 크기가 달라져야 하기에 display: inline-block;
+  인라인 속성이면 크기가 사라지기 때문에 상하 마진이나 패딩이 먹히지 않는다.
+  div의 기본값인 block 상태 => 텍스트의 양과 상관 없이 늘 최대 가로 사이즈가 100%로 적용 */
+  display: inline-block;
+  max-width: calc(100% - 0.5rem);
+  min-width: 40rem;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 2.8px;
+}
+
+.wrap .chat .textbox::before {
+  position: absolute;
+  display: block;
+  top: 0;
+  font-size: 1.6rem;
+}
+
+.wrap .ch1 .textbox {
+  margin-left: 2rem;
+  background-color: white;
+}
+
+.wrap .ch1 .textbox::before {
+  left: -1.3rem;
+  content: "◀";
+  color: white;
+}
+
+/* 아이콘 */
+.like-fficial {
+  color: #c82d36;
+  font-size: 2rem;
+}
