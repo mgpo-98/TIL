@@ -3,4 +3,4 @@ cnt=0
 for i in students:
 	if i == '이영희':
 		cnt+=1
-print(cnt)
+print(cnt).
