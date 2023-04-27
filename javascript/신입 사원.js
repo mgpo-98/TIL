@@ -20,4 +20,4 @@ fetch('https://learn.codeit.kr/api/interviews/summer')
   .then((members) => {
     console.log(`총 직원 수: ${members.length}`);
     console.log(members);
-  });
+  });f
