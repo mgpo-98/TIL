@@ -6,4 +6,4 @@
 
 const os = require('os');
 
-console.log(ps.cpus());
+console.log(os.cpus());
