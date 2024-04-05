@@ -7,8 +7,8 @@ while (n == 0) :
     else :
         n -=2
         ans +=1
-    if n<0 :
-        break
+        if n<0 :
+            break
 print(ans)
  
         
